@@ -9,7 +9,7 @@
         @endif
 
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
-            <form action="{{ route('orders.index') }}" method="GET" class="d-flex align-items-center flex-wrap gap-2">
+            {{-- <form action="{{ route('orders.index') }}" method="GET" class="d-flex align-items-center flex-wrap gap-2">
                 <label for="per_page" class="mb-0">Tampilkan:</label>
                 <select name="per_page" id="per_page" class="form-select w-auto" onchange="this.form.submit()">
                     <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5</option>
@@ -34,7 +34,7 @@
                 </select>
 
                 <button type="submit" class="btn btn-primary">Filter</button>
-            </form>
+            </form> --}}
 
             <a class="btn btn-success"
                 href="{{ route('orders.export', request()->only(['tanggal', 'bulan', 'tahun', 'per_page'])) }}">
@@ -89,7 +89,7 @@
                                                 <p><strong>Alamat:</strong> {{ $toko->alamat }}</p>
                                                 <p><strong>No. HP:</strong> {{ $toko->no_hp }}</p>
                                             @else
-                                                <p>Toko tidak ditemukan.</p>
+                                                <p>Fresh Flowers</p>
                                             @endif
                                         </div>
                                         <div class="modal-body">

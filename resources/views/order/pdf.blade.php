@@ -74,7 +74,7 @@
                 <p>Alamat: {{ $paymentDetails['toko']->alamat }}</p>
                 <p>No. HP: {{ $paymentDetails['toko']->no_hp }}</p>
             @else
-                <p>Informasi toko tidak ditemukan.</p>
+                <p>Fresh Flowers</p>
             @endif
         </div>
 
@@ -83,14 +83,13 @@
             <p><strong>Tanggal:</strong> {{ $paymentDetails['created_at'] }}</p>
             <p><strong>Kasir:</strong> {{ $paymentDetails['kasir'] }}</p>
         </div>
-    </div>
 
+        @if ($paymentDetails['is_member'] === 'member')
         <div class="section">
-            @if ($paymentDetails['is_member'] === 'member')
-                <p><strong>Telepon:</strong> {{ $paymentDetails['phone'] }}</p>
-                <p><strong>Member Sejak:</strong> {{ $paymentDetails['member_since'] }}</p>
-            @endif
+            <p><strong>Telepon:</strong> {{ $paymentDetails['phone'] }}</p>
+            <p><strong>Member Sejak:</strong> {{ $paymentDetails['member_since'] }}</p>
         </div>
+        @endif
 
         <div class="line"></div>
 
@@ -112,13 +111,13 @@
         </table>
 
         <div class="section">
-            <p ><strong>Total Pembayaran:</strong> Rp {{ number_format($paymentDetails['total_pay'], 0, ',', '.') }}</p>
+            <p><strong>Total Pembayaran:</strong> Rp {{ number_format($paymentDetails['total_pay'], 0, ',', '.') }}</p>
             <p><strong>Poin Digunakan:</strong> {{ number_format($paymentDetails['poin_digunakan'], 0, ',', '.') }}</p>
             <p><strong>Total Harga:</strong> Rp {{ number_format($paymentDetails['total_asli'] - $paymentDetails['poin_digunakan'], 0, ',', '.') }}</p>
             <p><strong>Kembalian:</strong> Rp {{ number_format($paymentDetails['kembalian'], 0, ',', '.') }}</p>
         </div>
-        <div class="line"></div>
 
+        <div class="line"></div>
 
         <div class="text-center mt-3">
             <p>--- Terima Kasih ---</p>

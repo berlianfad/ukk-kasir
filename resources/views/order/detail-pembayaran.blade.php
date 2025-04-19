@@ -9,7 +9,7 @@
             <p>{{ $paymentDetails['toko']->alamat }}</p>
             <p>No. HP: {{ $paymentDetails['toko']->no_hp }}</p>
         @else
-            <p>Informasi toko tidak ditemukan.</p>
+            <p>Fresh Flowers</p>
         @endif
     </div>
 
@@ -17,6 +17,8 @@
         <p><strong>Invoice:</strong> {{ $paymentDetails['invoice'] }}</p>
         <p><strong>Kasir:</strong> {{ $paymentDetails['kasir'] }}</p>
         <p><strong>Status:</strong> {{ $paymentDetails['is_member'] }}</p>
+        <p><strong>No Telp:</strong> {{ $paymentDetails['order']->no_telp ?? '-' }}</p>
+
     </div>
     <div class="section">
         <!-- Tambahkan konten lain sesuai kebutuhan -->
@@ -35,6 +37,7 @@
                         <th>Produk</th>
                         <th style="text-align:right">Harga</th>
                         <th style="text-align:right">Quantity</th>
+                        <th style="text-align:right">No Telp</th>
                         <th style="text-align:right">Sub Total</th>
                     </tr>
                 </thead>
@@ -43,7 +46,7 @@
                         <tr>
                             <td>{{ $product['name'] }}</td>
                             <td style="text-align:right">Rp {{ number_format($product['price'], 0, ',', '.') }}</td>
-                            <td style="text-align:right">{{ $product['quantity'] }}kg</td>
+                            <td style="text-align:right">{{ $product['quantity'] }}</td>
                             <td style="text-align:right">Rp {{ number_format($product['subtotal'], 0, ',', '.') }}</td>
                         </tr>
                     @endforeach
